@@ -65,7 +65,7 @@ A POST request to add a friend to your friend list.
 2. Check if you have node.js and npm, if not, install them.
     - node: <code>node -v</code> or <code>node -version</code>
     - npm: <code>npm -v</code> or <code>npm -version</code>
-3. Install the Angular cli with <code>npm install -g @angular/cli</code> and check afterwards if you have it with <code>ng -v</code>
+3. Install the Angular cli with <code>npm install -g @angular/cli</code> and check afterwards if you have it with <code>ng version</code>
 4. Navigate to the root of your clone of this repository in the terminal and enter the command <code>ng new project-name</code>. You should now have 2 folders called "server", your node API, and "project-name", your angular app.
 5. Go inside of the "project-name" folder and run the command <code>ng serve --port 4500</code>. You can now check out your angular app on <code>localhost:4500</code>.
 6. In your editor, navigate to <code>project-name/src/app</code>. In here you'll find 2 things.
