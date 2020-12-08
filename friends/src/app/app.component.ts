@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {Friend} from "./friend";
+
 
 @Component({
   selector: 'app-root',
@@ -9,6 +11,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = "Hello friends";
   listLanguages: ["HTML", "CSS", "JS", "PHP"];
+  friendModel = new Friend ("","","","","")
+
 }
 
 

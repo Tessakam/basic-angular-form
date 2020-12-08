@@ -1,19 +1,22 @@
-<form>
+{{ friendModel | json }}
+
+<!--#formName = variable with data of the form in realtime. -->
+<form #formName="ngForm">
   <div class="form-group row">
     <label for="firstName">First Name</label>
-    <input type="text" class="form-control" id="firstName" placeholder="Your first name" required="required">
+    <input [(ngModel)]="friendModel.firstName" #firstName="ngModel" type="text" class="form-control" id="firstName" name="firstName" placeholder="Your first name" required="required">
   </div>
   <div class="form-group row">
     <label for="lastName">Last Name</label>
-    <input type="text" class="form-control" id="lastName" placeholder="Your last name" required="required">
+    <input [(ngModel)]="friendModel.lastName" #lastName="ngModel" type="text" class="form-control" id="lastName" name="lastName" placeholder="Your last name" required="required">
   </div>
   <div class="form-group row">
     <label for="email">Email</label>
-    <input type="text" class="form-control" id="email" placeholder="Your email" required="required">
+    <input [(ngModel)]="friendModel.email" #email="ngModel" type="text" class="form-control" id="email" name="email" placeholder="Your email" required="required">
   </div>
   <div class="form-group row">
     <label for="phoneNumber">Phone number</label>
-    <input type="text" class="form-control" id="phoneNumber" placeholder="Your phone number" required="required">
+    <input [(ngModel)]="friendModel.phoneNumber" #phoneNumber="ngModel" type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Your phone number" required="required">
   </div>
 
   <!--<select class="custom-select">
@@ -26,7 +29,8 @@
 
   <div class="form-group row">
     <label for="language">Favorite language</label>
-    <select class="form-control" id="language" required="required">
+    <select class="form-control" id="language" name="language" required="required">
+      <input [(ngModel)]="friendModel.language" #language="ngModel">
       <option value="" selected disabled>Choose your favorite language</option>
       <option *ngFor="let language of listLanguages ;let i=index" value="{{ listLanguages}}"></option> </select>
   </div>
