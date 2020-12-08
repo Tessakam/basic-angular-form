@@ -2,43 +2,48 @@
 
 <!--#formName = variable with data of the form in realtime. -->
 <form #formName="ngForm">
-  <div class="form-group row">
-    <label for="firstName">First Name</label>
-    <input [(ngModel)]="friendModel.firstName" #firstName="ngModel" type="text" class="form-control" id="firstName" name="firstName" placeholder="Your first name" required="required">
-  </div>
-  <div class="form-group row">
-    <label for="lastName">Last Name</label>
-    <input [(ngModel)]="friendModel.lastName" #lastName="ngModel" type="text" class="form-control" id="lastName" name="lastName" placeholder="Your last name" required="required">
-  </div>
-  <div class="form-group row">
-    <label for="email">Email</label>
-    <input [(ngModel)]="friendModel.email" #email="ngModel" type="text" class="form-control" id="email" name="email" placeholder="Your email" required="required">
-  </div>
-  <div class="form-group row">
-    <label for="phoneNumber">Phone number</label>
-    <input [(ngModel)]="friendModel.phoneNumber" #phoneNumber="ngModel" type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Your phone number" required="required">
-  </div>
+  <div class="container">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input [(ngModel)]="friendModel.firstName" #firstName="ngModel" type="text" class="form-control" id="firstName"
+             name="firstName" placeholder="Your first name" required="required">
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input [(ngModel)]="friendModel.lastName" #lastName="ngModel" type="text" class="form-control" id="lastName"
+             name="lastName" placeholder="Your last name" required="required">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input [(ngModel)]="friendModel.email" #email="ngModel" type="text" class="form-control" id="email" name="email"
+             placeholder="Your email" required="required">
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone number</label>
+      <input [(ngModel)]="friendModel.phoneNumber" #phoneNumber="ngModel" type="text" class="form-control"
+             id="phoneNumber" name="phoneNumber" placeholder="Your phone number" required="required">
+    </div>
 
-  <!--<select class="custom-select">
-    <option selected>Favorite language</option>
-    <option value="1">Html</option>
-    <option value="2">Css</option>
-    <option value="3">Js</option>
-    <option value="3">Php</option>
-  </select>-->
+    <!--<select class="custom-select">
+      <option selected>Favorite language</option>
+      <option value="1">Html</option>
+      <option value="2">Css</option>
+      <option value="3">Js</option>
+      <option value="3">Php</option>
+    </select>-->
 
-  <div class="form-group row">
-    <label for="language">Favorite language</label>
-    <select class="form-control" id="language" name="language" required="required">
-      <input [(ngModel)]="friendModel.language" #language="ngModel">
-      <option value="" selected disabled>Choose your favorite language</option>
-      <option *ngFor="let language of listLanguages ;let i=index" value="{{ listLanguages}}"></option> </select>
-  </div>
+    <div class="form-group">
+      <label for="language">Favorite language</label>
+      <select class="form-control" id="language" name="language" required="required" [(ngModel)]="friendModel.language" #language="ngModel">
+        <option value="" selected disabled>Choose your favorite language</option>
+        <option *ngFor="let language of listLanguages">{{ language}}</option>
+      </select>
+    </div>
 
-  <div class="form-group row">
-    <div class="col-sm-10 offset-sm-2">
-      <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="form-group">
+      <div class="col-sm-10 offset-sm-2">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
     </div>
   </div>
-
 </form>

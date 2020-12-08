@@ -10,7 +10,7 @@ import {Friend} from "./friend";
 
 export class AppComponent {
   title = "Hello friends";
-  listLanguages: ["HTML", "CSS", "JS", "PHP"];
+  listLanguages = ["HTML", "CSS", "JS", "PHP"];
   friendModel = new Friend ("","","","","")
 
 }
