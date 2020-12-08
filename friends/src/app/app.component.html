@@ -2,7 +2,9 @@
 
 <!--#formName = variable with data of the form in realtime. -->
 <!--touched = prevents red border with empty fields -->
-<form #formName="ngForm">
+<!--"novalidate" = prevent the automatic browser validation -->
+
+<form method="post" #formFriends="ngForm" name="formFriends" novalidate>
   <div class="container">
     <div class="form-group">
       <label for="firstName">First Name</label>
@@ -35,9 +37,7 @@
 
     <div class="form-group">
       <label for="language">Favorite language</label>
-      <select class="form-control" id="language" name="language" required="required"
-              [class.error]="language.invalid && language.touched"
-              [(ngModel)]="friendModel.language" #language="ngModel">
+      <select class="form-control" id="language" name="language" required="required" [class.error]="language.invalid && language.touched" [(ngModel)]="friendModel.language" #language="ngModel">
         <option value="" selected disabled>Choose your favorite language</option>
         <option *ngFor="let language of listLanguages">{{ language}}</option>
       </select>
@@ -45,7 +45,7 @@
 
     <div class="form-group">
       <div class="col-sm-10 offset-sm-2">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button [disabled]="formFriends.form.invalid" type="submit" id="submit" class="btn btn-primary">Submit</button>
       </div>
     </div>
   </div>
