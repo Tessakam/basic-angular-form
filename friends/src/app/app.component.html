@@ -4,27 +4,34 @@
 <!--touched = prevents red border with empty fields -->
 <!--"novalidate" = prevent the automatic browser validation -->
 
-<form method="post" #formFriends="ngForm" name="formFriends" novalidate (ngSubmit)="addFriend()">
-  <div class="container">
+<!--Add a friend-->
+<div class="container">
+  <H3>Do you want to be my friend? </H3><br>
+  <form method="POST" #formFriends="ngForm" (ngSubmit)="addFriend()" name="formFriends" novalidate>
+
     <div class="form-group">
       <label for="firstName">First Name</label>
       <input [(ngModel)]="friendModel.firstName" #firstName="ngModel" type="text" class="form-control" id="firstName"
-             name="firstName" placeholder="Your first name" required="required" [class.error]="firstName.invalid && firstName.touched" pattern="^[A-z]*((-|\s)*[A-z])*$">
+             name="firstName" placeholder="Your first name" required="required"
+             [class.error]="firstName.invalid && firstName.touched" pattern="^[A-z]*((-|\s)*[A-z])*$">
     </div>
     <div class="form-group">
       <label for="lastName">Last Name</label>
       <input [(ngModel)]="friendModel.lastName" #lastName="ngModel" type="text" class="form-control" id="lastName"
-             name="lastName" placeholder="Your last name" required="required" [class.error]="lastName.invalid && lastName.touched" pattern="^[A-z]*((-|\s)*[A-z])*$">
+             name="lastName" placeholder="Your last name" required="required"
+             [class.error]="lastName.invalid && lastName.touched" pattern="^[A-z]*((-|\s)*[A-z])*$">
     </div>
     <div class="form-group">
       <label for="email">Email</label>
       <input [(ngModel)]="friendModel.email" #email="ngModel" type="text" class="form-control" id="email" name="email"
-             placeholder="Your email" required="required" [class.error]="email.invalid && email.touched" pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$">
+             placeholder="Your email" required="required" [class.error]="email.invalid && email.touched"
+             pattern="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$">
     </div>
     <div class="form-group">
       <label for="phoneNumber">Phone number</label>
       <input [(ngModel)]="friendModel.phoneNumber" #phoneNumber="ngModel" type="text" class="form-control"
-             id="phoneNumber" name="phoneNumber" placeholder="(+32) ..." required="required" [class.error]="phoneNumber.invalid && phoneNumber.touched" pattern="^(\+32|0)(?:[-\s]*[0-9]){9}$">
+             id="phoneNumber" name="phoneNumber" placeholder="(+32) ..." required="required"
+             [class.error]="phoneNumber.invalid && phoneNumber.touched" pattern="^(\+32|0)(?:[-\s]*[0-9]){9}$">
     </div>
 
     <!--<select class="custom-select">
@@ -37,7 +44,9 @@
 
     <div class="form-group">
       <label for="language">Favorite language</label>
-      <select class="form-control" id="language" name="language" required="required" [class.error]="language.invalid && language.touched" [(ngModel)]="friendModel.language" #language="ngModel">
+      <select class="form-control" id="language" name="language" required="required"
+              [class.error]="language.invalid && language.touched" [(ngModel)]="friendModel.language"
+              #language="ngModel">
         <option value="" selected disabled>Choose your favorite language</option>
         <option *ngFor="let language of listLanguages">{{ language}}</option>
       </select>
@@ -48,5 +57,21 @@
         <button [disabled]="formFriends.form.invalid" type="submit" id="submit" class="btn btn-primary">Submit</button>
       </div>
     </div>
+  </form>
+</div>
+
+<!--Show all friends-->
+<div class="container">
+  <H3>Hello friends! </H3><br>
+  <div *ngFor="let friend of allFriends; index as i"></div>
+
+  <div class="card">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">My friend: {{ firstName}}{{ lastName}}/li>
+      <li class="list-group-item">Email : {{ email}}</li>
+      <li class="list-group-item">Phone number: {{ phoneNumber}}</li>
+      <li class="list-group-item">Favorite language: {{ language}}</li>
+    </ul>
   </div>
-</form>
+
+</div>

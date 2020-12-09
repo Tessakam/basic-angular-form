@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
-const PORT = 6969;
+const PORT = 9000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}) );
@@ -15,7 +15,7 @@ app.all("/*", function(req, res, next){
 });
 
 
-let allFriends = [{fName: 'Coach', lName: 'Tim', email: 'tim.broos@becode.org', phone: '0469420666', signatureMove: 'Yeet', language: 'Javascript'}];
+let allFriends = [{firstName: 'Coach', lastName: 'Tim', email: 'tim.broos@becode.org', phoneNumber: '0469420666', signatureMove: 'Yeet', language: 'Javascript'}];
 
 // Below you can define how your API handles a get or a post request.
 // Try sending a get request to the root, you should get a "Hello from server" back.

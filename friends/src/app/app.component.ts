@@ -14,16 +14,16 @@ export class AppComponent {
   title = "Hello friends";
   listLanguages = ["HTML", "CSS", "JS", "PHP"];
   friendModel = new Friend("", "", "", "", "")
-  private AddFriendService: any;
+  public AddFriendService: any;
+  allFriends: any= [];
 
   constructor(AddFriendService: AddFriendService) {
+    this.AddFriendService = AddFriendService;
   }
 
-  //In the method, call the addFriend method of the addFriendService and pass the friend data to it.
-  //"observable" = returns method and to get the data out,use subscribe
-  addFriend() {
-    this.AddFriendService.addFriend(this.friendModel).subscribe(data => console.log(data))
-      //console.log(this.friendModel);
+  addFriend() : void {
+    this.AddFriendService.addFriend(this.friendModel).subscribe((data: Friend ) => console.log(data))
+    console.log(this.friendModel);
     }
   }
 
