@@ -4,7 +4,7 @@
 <!--touched = prevents red border with empty fields -->
 <!--"novalidate" = prevent the automatic browser validation -->
 
-<form method="post" #formFriends="ngForm" name="formFriends" novalidate>
+<form method="post" #formFriends="ngForm" name="formFriends" novalidate (ngSubmit)="addFriend()">
   <div class="container">
     <div class="form-group">
       <label for="firstName">First Name</label>
