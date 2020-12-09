@@ -62,6 +62,7 @@
 
 <!--Show all friends-->
 <div class="container">
+  <form method="GET">
   <H3>Hello friends! </H3><br>
   <div *ngFor="let friend of allFriends; index as i"></div>
 
@@ -73,5 +74,5 @@
       <li class="list-group-item">Favorite language: {{ language}}</li>
     </ul>
   </div>
-
+  </form>
 </div>
